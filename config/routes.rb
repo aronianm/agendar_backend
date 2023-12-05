@@ -9,4 +9,10 @@ Rails.application.routes.draw do
                                   registrations: 'users/registrations'
                                 }
   resources :teams
+
+  namespace :api do
+    namespace :v1 do
+      get :authenticate, controller: :users, action: :authenticate
+    end
+  end
 end
