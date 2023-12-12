@@ -9,11 +9,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: <%= ENV.fetch("MYSQL_DATABASE") %>
   host: <%= ENV.fetch("MYSQL_HOST") %>
-  password: <%= ENV.fetch("MYSQL_PASSWORD") %>
   username: <%= ENV.fetch("MYSQL_USERNAME") %>
   timeout: 5000
 
 development:
+  password:  <%= ENV.fetch("MYSQL_PASSWORD") %>
   <<: *default
 
 # Warning: The database defined as "test" will be erased and
@@ -23,4 +23,5 @@ test:
   <<: *default
 
 production:
+  password:  <%= Rails.application.credentials.dbpassword %>
   <<: *default

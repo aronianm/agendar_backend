@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users do
       post :new_users, on: :collection
     end
+    resources :team_players
     collection do
       post :signup
     end
